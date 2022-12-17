@@ -17,10 +17,23 @@ def Formula(startNum, n):
     multipliList = []
 
     for i in range(startNum, n + 1):
+
         numN = (1 + 1/n) ** n
         multipliList.append(numN)
         
-
     return multipliList
+
+def SumElementsList(elements):
+
+    result = 0
+
+    for i in range(len(elements)):
+
+        result += elements(i)
+
+    return result
+
+
+
 
 # ===========================================================
