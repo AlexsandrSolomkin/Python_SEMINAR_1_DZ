@@ -18,7 +18,7 @@ def Formula(startNum, n):
 
     for i in range(startNum, n + 1):
 
-        numN = (1 + 1/n) ** n
+        numN = round(((1 + 1/i) ** i), 3)
         multipliList.append(numN)
         
     return multipliList
@@ -29,11 +29,10 @@ def SumElementsList(elements):
 
     for i in range(len(elements)):
 
-        result += elements(i)
+        result += elements[i]
 
     return result
 
-
-
+print(Formula(1, num), SumElementsList(Formula(1, num)), sep="\n")
 
 # ===========================================================
