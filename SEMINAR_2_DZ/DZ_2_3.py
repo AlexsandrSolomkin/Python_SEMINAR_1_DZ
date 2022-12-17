@@ -12,6 +12,15 @@
 
 num = int(input("Задайте список из n чисел, заполненный по формуле (1 + 1/n) ** n\nn: "))
 
+def Formula(startNum, n):
+    
+    multipliList = []
 
+    for i in range(startNum, n + 1):
+        numN = (1 + 1/n) ** n
+        multipliList.append(numN)
+        
+
+    return multipliList
 
 # ===========================================================
