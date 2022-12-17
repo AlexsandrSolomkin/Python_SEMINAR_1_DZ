@@ -11,5 +11,18 @@
 num = int(input("Введите число N для составления списка состоящего из элементов от 1 до N\nЧисло: "))
 
 
+def СreatingMultiplicationList(startNum, number):
+
+    multipliList = []
+
+    for i in range(startNum, number + 1):
+        startNum *= i
+        multipliList.append(startNum)
+        
+
+    return multipliList
+
+
+print("{} -> {}".format(num, СreatingMultiplicationList(1, num)))
 
 # ===========================================================
