@@ -8,7 +8,9 @@
 
 # Решение:
 
-num = int(input("Введите число, которое будет максимальным в списке, который вы хотите перетосовать\nЧисло: "))
+num = int(input(
+    "Введите число, которое будет максимальным в списке, который вы хотите перетосовать\nЧисло: "))
+
 
 def СreatingNewList(startNum):
 
@@ -21,6 +23,29 @@ def СreatingNewList(startNum):
 
     return newList
 
-print(СreatingNewList(num))
+
+startNumList = СreatingNewList(num)
+print(startNumList)
+
+
+def ShufflingListItems(startList):
+
+    import random
+
+    newShuffingList = []
+    maxIndexList = len(startList) - 1
+
+    for i in range(maxIndexList + 1):
+
+        e = random.randint(0, maxIndexList)
+        maxIndexList -= 1
+        numEl = startList.pop(e)
+        newShuffingList.append(numEl)
+
+    return newShuffingList
+
+
+shuffingStartNumList = ShufflingListItems(startNumList)
+print(shuffingStartNumList)
 
 # ===========================================================
