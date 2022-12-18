@@ -15,6 +15,7 @@ num = int(input("Enter the value of N: "))
 num1 = int(input("Position one: "))
 num2 = int(input("Position two: "))
 
+
 def СreatingNewList(startNum):
 
     newList = []
@@ -22,9 +23,31 @@ def СreatingNewList(startNum):
     startNum *= (-1)
 
     for i in range(startNum, endNum):
+
         newList.append(startNum)
         startNum += 1
-        
+
     return newList
+
+
+def Element_X_Element(newList, firstEl, secondEl):
+
+    result = 0
+
+    if firstEl != 0 and secondEl != 0:
+
+        firstEl -= 1
+        secondEl -= 1
+        result = newList[firstEl] * newList[secondEl]
+
+    else:
+
+        result = "Введены некорректные данные"
+
+    return result
+
+
+print(СreatingNewList(num))
+print(Element_X_Element(СreatingNewList(num), num1, num2))
 
 # ===========================================================
