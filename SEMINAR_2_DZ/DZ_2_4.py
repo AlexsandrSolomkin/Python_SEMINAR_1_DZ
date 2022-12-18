@@ -15,6 +15,16 @@ num = int(input("Enter the value of N: "))
 num1 = int(input("Position one: "))
 num2 = int(input("Position two: "))
 
+def СreatingNewList(startNum):
 
+    newList = []
+    endNum = startNum + 1
+    startNum *= (-1)
+
+    for i in range(startNum, endNum):
+        newList.append(startNum)
+        startNum += 1
+        
+    return newList
 
 # ===========================================================
