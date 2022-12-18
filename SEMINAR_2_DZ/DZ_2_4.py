@@ -34,7 +34,11 @@ def Element_X_Element(newList, firstEl, secondEl):
 
     result = 0
 
-    if firstEl != 0 and secondEl != 0:
+    if firstEl > len(newList) or secondEl > len(newList):
+
+        result = "There are no values for these indexes!"
+
+    elif firstEl != 0 and secondEl != 0:
 
         firstEl -= 1
         secondEl -= 1
@@ -42,7 +46,7 @@ def Element_X_Element(newList, firstEl, secondEl):
 
     else:
 
-        result = "Введены некорректные данные"
+        result = "Incorrect data entered"
 
     return result
 
