@@ -11,6 +11,10 @@
 
 # Решение:
 
+num = int(input("Enter the value of N: "))
+num1 = int(input("Position one: "))
+num2 = int(input("Position two: "))
+
 
 
 # ===========================================================
