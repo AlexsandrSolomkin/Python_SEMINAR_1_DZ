@@ -10,4 +10,17 @@
 
 num = int(input("Введите число, которое будет максимальным в списке, который вы хотите перетосовать\nЧисло: "))
 
+def СreatingNewList(startNum):
+
+    newList = []
+    endNum = startNum + 1
+
+    for i in range(endNum):
+
+        newList.append(i)
+
+    return newList
+
+print(СreatingNewList(num))
+
 # ===========================================================
