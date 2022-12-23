@@ -20,6 +20,7 @@
 
 num = int(input("Введите количество элементов, которое будет в списке: "))
 
+
 def GetListRandomElements(lengthList, minEl, maxEL):
 
     import random
@@ -33,6 +34,21 @@ def GetListRandomElements(lengthList, minEl, maxEL):
 
     return newList
 
-print(GetListRandomElements(num, 1, 10))
+
+def SumElementsListWithStep(listElements, start, step):
+
+    sumEl = 0
+
+    for i in range(start, len(listElements), step):
+
+        sumEl += listElements[i]
+
+    return sumEl
+
+
+listNum = GetListRandomElements(num, 1, 10)
+sumElementsNum = SumElementsListWithStep(listNum, 0, 2)
+
+print(listNum, "\n", sumElementsNum)
 
 # ===========================================================
