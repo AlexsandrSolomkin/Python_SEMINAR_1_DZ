@@ -22,8 +22,8 @@ num = int(input("Введите количество элементов, \
     которое будет в списке: "))
 
 
-def get_list_random_elements(length_list: int, min_el: int, \
-    max_el: int) -> list:
+def get_list_random_elements(length_list: int, min_el: int,
+                             max_el: int) -> list:
 
     if length_list < 0:
         print("Количество элементов списка \
@@ -39,7 +39,25 @@ def get_list_random_elements(length_list: int, min_el: int, \
 
     return new_list
 
-# def multiplying_num_from_list_from_ends(list_elements: list,):
 
+def multiplying_num_from_list_from_ends(list_elements: list) -> list:
+    result = 0
+    left = 0
+    rigth_index = -1
+    rigth = list_elements[rigth_index]
+    new_list_mult = []
+
+    for i in range(len(list_elements) // 2):
+        left = list_elements[0]
+        new_list_mult[i] = left * rigth
+        left = list_elements[i]
+        rigth_index -= 1
+        rigth = list_elements[rigth_index]
+
+    if len(list_elements) % 2 != 0:
+        central_element = (list_elements // 2) + 1
+        new_list_mult.append(central_element)
+
+    return new_list_mult
 
 # =====================================================================
