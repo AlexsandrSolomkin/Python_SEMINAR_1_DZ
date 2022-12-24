@@ -18,6 +18,17 @@
 
 # Решение:
 
+num = int(input("Введите количество элементов, которое будет в списке: "))
 
+
+def GetListRandomElements(lengthList, minEl, maxEL):
+    import random
+    newList = []
+
+    for i in range(lengthList):
+        e = random.randint(minEl, maxEL)
+        newList.append(e)
+
+    return newList
 
 # =====================================================================
