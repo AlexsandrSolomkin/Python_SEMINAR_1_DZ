@@ -22,13 +22,10 @@ num = int(input("Введите количество элементов, кот�
 
 
 def GetListRandomElements(lengthList, minEl, maxEL):
-
     import random
-
     newList = []
 
     for i in range(lengthList):
-
         e = random.randint(minEl, maxEL)
         newList.append(e)
 
@@ -36,11 +33,9 @@ def GetListRandomElements(lengthList, minEl, maxEL):
 
 
 def SumElementsListWithStep(listElements, start, step):
-
     sumEl = 0
 
     for i in range(start, len(listElements), step):
-
         sumEl += listElements[i]
 
     return sumEl
