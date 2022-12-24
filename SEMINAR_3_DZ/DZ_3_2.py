@@ -18,16 +18,14 @@
 
 # Решение:
 
-num = int(input("Введите количество элементов, \
-    которое будет в списке: "))
+num = int(input("Введите количество элементов, которое будет в списке: "))
 
 
 def get_list_random_elements(length_list: int, min_el: int,
                              max_el: int) -> list:
 
     if length_list < 0:
-        print("Количество элементов списка \
-            не может быть меньше нуля!!!")
+        print("Количество элементов списка не может быть меньше нуля!!!")
         return []
 
     import random
@@ -46,18 +44,25 @@ def multiplying_num_from_list_from_ends(list_elements: list) -> list:
     rigth_index = -1
     rigth = list_elements[rigth_index]
     new_list_mult = []
+    length_new_list = len(list_elements) // 2
 
-    for i in range(len(list_elements) // 2):
-        left = list_elements[0]
-        new_list_mult[i] = left * rigth
+    for i in range(length_new_list):
         left = list_elements[i]
+        result = left * rigth
+        new_list_mult.append(result)
         rigth_index -= 1
         rigth = list_elements[rigth_index]
 
     if len(list_elements) % 2 != 0:
-        central_element = (list_elements // 2) + 1
+        central_element = list_elements[length_new_list]
         new_list_mult.append(central_element)
 
     return new_list_mult
+
+
+start_list = get_list_random_elements(num, 1, 10)
+end_list = multiplying_num_from_list_from_ends(start_list)
+
+print(start_list, "\n", end_list, sep="")
 
 # =====================================================================
