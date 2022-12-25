@@ -17,9 +17,9 @@
 
 num = int(input("Шаги в каждую сторону для Негафибоначчи: "))
 
+
 def fibonacci(count: int) -> list:
     fibonacci_list = [0, 1]
-    # second_index = 1
     new_element = 0
 
     for i in range(count - 1):
@@ -29,13 +29,28 @@ def fibonacci(count: int) -> list:
     return fibonacci_list
 
 
-# def negafibonacci(fib_list: list) -> list:
-#     negafibonacci_list = []
+def negafibonacci(fib_list: list) -> list:
+    negafibonacci_list = list(reversed(fib_list))
+    length_list_nf = len(negafibonacci_list)
+
+    if length_list_nf % 2 != 0:
+        for i in range(0, length_list_nf - 1, 2):
+            negafibonacci_list[i] *= (-1)
+    else:
+        for i in range(1, length_list_nf - 1, 2):
+            negafibonacci_list[i] *= (-1)
+
+    for g in range(1, len(fib_list)):
+        negafibonacci_list.append(fib_list[g])
+
+    return negafibonacci_list
+
 
 f_list = fibonacci(num)
+negafib_list = negafibonacci(f_list)
 
 print(f_list)
-
+print(negafib_list)
 
 
 # ============================================================================
