@@ -49,8 +49,8 @@ def negafibonacci(fib_list: list) -> list:
 f_list = fibonacci(num)
 negafib_list = negafibonacci(f_list)
 
-print(f_list)
-print(negafib_list)
+# print(f_list)
+print(*negafib_list)
 
 
 # ============================================================================
