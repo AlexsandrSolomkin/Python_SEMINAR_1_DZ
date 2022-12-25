@@ -42,10 +42,37 @@ def list_fractional_part(list_elements: list) -> list:
 
     return new_list_elements
 
+
+def min_max_difference_list(list_float: list) -> list:
+    index_min = 0
+    index_max = 1
+    index_difference = 2
+    difference = 0
+    min_max_difference = [list_float[0], list_float[0], difference]
+
+    for k in range(1, len(list_float)):
+        if min_max_difference[index_min] > list_float[k]:
+            min_max_difference[index_min] = list_float[k]
+        elif min_max_difference[index_max] < list_float[k]:
+            min_max_difference[index_max] = list_float[k]
+
+    difference = min_max_difference[index_max] - min_max_difference[index_min]
+    difference = round(difference, 2)
+    min_max_difference[index_difference] = difference
+
+    return min_max_difference
+
+
 list_random_elements_float = get_list_random_elements(num, 0.00, 10.00)
 list_float_elements = list_fractional_part(list_random_elements_float)
+list_min_max_difference = min_max_difference_list(list_float_elements)
 
-print(list_random_elements_float, "\n", list_float_elements, sep="")
+print(list_random_elements_float)
+print(list_float_elements)
+print("Min: {}, Max: {}. Difference: {}".format(
+    list_min_max_difference[0],
+    list_min_max_difference[1], 
+    list_min_max_difference[2]))
 
 
 # ============================================================================
