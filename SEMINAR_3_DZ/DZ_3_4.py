@@ -19,20 +19,33 @@
 num = int(input("Сколько произвольных вещественных чисел сгенерировать: "))
 
 
-def GetListRandomElements(lengthList: int, minEl: float, maxEL: float) -> list:
+def get_list_random_elements(length_list: int, min_el: float, max_el: float) -> list:
     import random
-    newList = []
+    new_list = []
 
-    for i in range(lengthList):
-        e = random.uniform(minEl, maxEL)
+    for i in range(length_list):
+        e = random.uniform(min_el, max_el)
         e = round(e, 2)
-        newList.append(e)
+        new_list.append(e)
 
-    return newList
+    return new_list
 
 
-list_random_elements_float = GetListRandomElements(num, 0.00, 10.00)
+def list_fractional_part(list_elements: list) -> list:
+    new_list_elements = []
+    new_element = float(0)
 
-print(list_random_elements_float)
+    for g in range(len(list_elements)):
+        new_element = list_elements[g] % 1
+        new_element = round(new_element, 2)
+        new_list_elements.append(new_element)
+
+    return new_list_elements
+
+list_random_elements_float = get_list_random_elements(num, 0.00, 10.00)
+list_float_elements = list_fractional_part(list_random_elements_float)
+
+print(list_random_elements_float, "\n", list_float_elements, sep="")
+
 
 # ============================================================================
