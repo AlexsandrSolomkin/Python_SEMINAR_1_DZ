@@ -17,6 +17,7 @@
 
 # Решение:
 
-
+num_1 = float(input("Enter a real number: "))
+num_2 = float(input("Enter the required accuracy '0.0001': "))
 
 # =============================================================================
