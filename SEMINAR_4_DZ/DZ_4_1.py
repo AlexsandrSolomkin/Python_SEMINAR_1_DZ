@@ -17,7 +17,21 @@
 
 # Решение:
 
-num_1 = float(input("Enter a real number: "))
-num_2 = float(input("Enter the required accuracy '0.0001': "))
+num_1 = input("Enter a real number: ")
+num_2 = input("Enter the required accuracy '0.0001': ")
+
+
+def required_accuracy(n: str, accuracy: str) -> float:
+    from decimal import Decimal
+    result = Decimal(n)
+    result = result.quantize(Decimal(accuracy))
+
+    return result
+
+
+new_num_1 = required_accuracy(num_1, num_2)
+
+print(new_num_1)
+
 
 # =============================================================================
