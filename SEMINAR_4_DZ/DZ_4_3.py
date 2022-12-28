@@ -31,7 +31,7 @@ def get_list_random_elements(length_list: int, min_el: int,
                              max_el: int) -> list:
 
     if length_list < 0:
-        print("Количество элементов списка не может быть меньше нуля!!!")
+        print("Negative value of the number of numbers!")
         return []
 
     import random
@@ -44,8 +44,34 @@ def get_list_random_elements(length_list: int, min_el: int,
     return new_list
 
 
+def unique_elements_list(start_list: list) -> list:
+    un_el_list = []
+    count = 0
+
+    for i in range(len(start_list)):
+        un_el_list.append(start_list[i])
+
+        for g in range(len(start_list)):
+
+            if un_el_list[-1] == start_list[g]:
+                count += 1
+            
+            if count == 2:
+                del un_el_list[-1]
+                break
+
+        count = 0
+
+    return un_el_list
+
+
+
+
+
 start_list = get_list_random_elements(num, 1, num)
+new_l = unique_elements_list(start_list)
 
 print(start_list)
+print(new_l)
 
 # =============================================================================
