@@ -27,6 +27,25 @@
 num = int(input("Enter a natural number: "))
 
 
+def get_list_random_elements(length_list: int, min_el: int,
+                             max_el: int) -> list:
 
+    if length_list < 0:
+        print("Количество элементов списка не может быть меньше нуля!!!")
+        return []
+
+    import random
+    new_list = []
+
+    for i in range(length_list):
+        e = random.randint(min_el, max_el)
+        new_list.append(e)
+
+    return new_list
+
+
+start_list = get_list_random_elements(num, 1, num)
+
+print(start_list)
 
 # =============================================================================
