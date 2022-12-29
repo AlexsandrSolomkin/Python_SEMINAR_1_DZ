@@ -61,8 +61,9 @@ def add_data(num: int, list_n: list, name_file: str) -> str:
 
             num -= 1
 
-        last_el = random.randint(1, 10)
-        my_f.write(f"{last_el} = 0\n")
+        if len(list_n) > 0:
+            last_el = random.randint(1, 10)
+            my_f.write(f"{last_el} = 0\n")
 
 
 num_k = int(input("k: "))
