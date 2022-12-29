@@ -70,6 +70,8 @@ num_k = int(input("k: "))
 
 list_k = get_list_random_elements(num_k, 0, 10)
 add_new_data = add_data(num_k, list_k, "poly.txt")
+# add_new_data = add_data(num_k, list_k, "poly_2.txt")
+# add_new_data = add_data(num_k, list_k, "poly_3.txt")
 
 print(list_k)
 
