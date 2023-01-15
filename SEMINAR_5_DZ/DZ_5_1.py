@@ -23,7 +23,6 @@
 
 # Решение:
 
-
 num_str = int(input("Number of words: "))
 str_el = "абв"
 
@@ -42,8 +41,23 @@ def create_list_str(num_1: int, start_el_str: str) -> list:
     return new_list
 
 
-list_str = create_list_str(num_str, str_el)
+def del_necessary_list_el(list_el: list, del_el: str) -> list:
+    list_result = []
 
-print(*list_str)
+    for i in range(len(list_el)):
+        if list_el[i] != del_el:
+            list_result.append(list_el[i])
+
+    return list_result
+
+
+if num_str >= 0:
+    list_str = create_list_str(num_str, str_el)
+    new_list_str = del_necessary_list_el(list_str, str_el)
+
+    print(*list_str)
+    print(*new_list_str)
+else:
+    print("The data is incorrect")
 
 # =============================================================================
