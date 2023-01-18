@@ -32,20 +32,21 @@ from os import path
 
 def create_record_file(start_file: str, name_record_file: str):
 
-    # Проверка, существует ли файл, с которым мы хотим взаимодействовать 
+    # Проверка, существует ли файл, с которым мы хотим взаимодействовать
     if path.exists(start_file):
         with open(start_file) as my_f_1, \
                 open(name_record_file, "a", encoding="utf-8") as my_f_2:
             for i in my_f_1:
                 # Цикл проходит построчно файл, и записывает кол. один.
                 # симв. подряд, строка: "ааааАааа", после обработки будет: "4a1A3a"
-                my_f_2.write("".join([f"{len(list(v))}{ch}" for ch, v in groupby(i)]))
+                my_f_2.write(
+                    "".join([f"{len(list(v))}{ch}" for ch, v in groupby(i)]))
     else:
         print("The files do not exist in the system!")
 
 
 def create_decode_file(rle_file: str):
-    
+
     # Проверка, существует ли файл, с которым мы хотим взаимодействовать
     if path.exists(rle_file):
         with open(rle_file) as my_f:
@@ -56,7 +57,7 @@ def create_decode_file(rle_file: str):
                     if i.isdigit():
                         n += 1
                     else:
-                        # Фиксирование точного кол. симв. числа 
+                        # Фиксирование точного кол. симв. числа
                         # т.к. может быть больше 9 подряд одинаковых символов
                         word_nums.append([int(n), i])
                         n = ""
@@ -64,7 +65,17 @@ def create_decode_file(rle_file: str):
     else:
         print("The files do not exist in the system!")
 
-
+# # Усложненный вариант
+# def create_decode_file(rle_file: str):
+#     if path.exists(rle_file):
+#         with open(rle_file) as my_f:
+#             for i in my_f:
+#                 word_nums = ["".join(g) for k, g in groupby(
+#                     i.strip(), key=str.isdigit)]
+#                 print("".join(
+#                     [f"{int(word_nums[i]) * word_nums[i + 1]}" for i in range(0, len(word_nums), 2)]))
+#     else:
+#         print("The files do not exist in the system!")
 
 # open_f = input("Enter the name of the file with the text: ")
 # record_f = input("Enter the file name to record: ")
