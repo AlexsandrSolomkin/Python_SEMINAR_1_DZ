@@ -11,7 +11,7 @@
 
 # out
 # aaaaavvvvvvvvvvvvvvvvvvvvvvvvvvvvvssssDDDdddFFggggOOiiiaa
-# vvvvvvvvvvvbbwwPPuuuTTYyWWQQ
+# vbbwwPPuuuTTYyWWQQ
 
 # out in file
 # 'text_words.txt'
@@ -26,6 +26,24 @@
 
 # Решение:
 
+from itertools import grouphy, starmap
+from os import path
 
+
+def create_record_file(start_file: str, name_record_file: str):
+
+    # Проверка, существует ли файл, с которым мы хотим взаимодействовать 
+    if path.exists(start_file):
+        with open(start_file) as my_f_1, \
+                open(name_record_file, "a", encoding="utf-8") as my_f_2:
+            for i in my_f_1:
+                my_f_2.write("".join([f"{len(list(v))}{ch}" for ch, v in groupby(i)]))
+    else:
+        print("The files do not exist in the system!")
+
+
+# open_f = input("Enter the name of the file with the text: ")
+# record_f = input("Enter the file name to record: ")
+# decode_f = input("Enter the name of the file to decode: ")
 
 # =============================================================================
