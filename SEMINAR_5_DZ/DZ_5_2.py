@@ -26,7 +26,7 @@
 
 # Решение:
 
-from itertools import grouphy, starmap
+from itertools import groupby, starmap
 from os import path
 
 
@@ -37,6 +37,8 @@ def create_record_file(start_file: str, name_record_file: str):
         with open(start_file) as my_f_1, \
                 open(name_record_file, "a", encoding="utf-8") as my_f_2:
             for i in my_f_1:
+                # Цикл проходит построчно файл, и записывает кол. один.
+                # симв. подряд, строка: ааааАааа, после обработки будет: 4a1A3a
                 my_f_2.write("".join([f"{len(list(v))}{ch}" for ch, v in groupby(i)]))
     else:
         print("The files do not exist in the system!")
