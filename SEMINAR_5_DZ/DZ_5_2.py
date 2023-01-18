@@ -38,10 +38,32 @@ def create_record_file(start_file: str, name_record_file: str):
                 open(name_record_file, "a", encoding="utf-8") as my_f_2:
             for i in my_f_1:
                 # Цикл проходит построчно файл, и записывает кол. один.
-                # симв. подряд, строка: ааааАааа, после обработки будет: 4a1A3a
+                # симв. подряд, строка: "ааааАааа", после обработки будет: "4a1A3a"
                 my_f_2.write("".join([f"{len(list(v))}{ch}" for ch, v in groupby(i)]))
     else:
         print("The files do not exist in the system!")
+
+
+def create_decode_file(rle_file: str):
+    
+    # Проверка, существует ли файл, с которым мы хотим взаимодействовать
+    if path.exists(rle_file):
+        with open(rle_file) as my_f:
+            n = ""
+            for k in my_f:
+                word_nums = []
+                for i in k.strip():
+                    if i.isdigit():
+                        n += 1
+                    else:
+                        # Фиксирование точного кол. симв. числа 
+                        # т.к. может быть больше 9 подряд одинаковых символов
+                        word_nums.append([int(n), i])
+                        n = ""
+                print("".join(starmap(lambda x, y: x * y, word_nums)))
+    else:
+        print("The files do not exist in the system!")
+
 
 
 # open_f = input("Enter the name of the file with the text: ")
