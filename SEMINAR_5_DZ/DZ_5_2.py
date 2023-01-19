@@ -25,13 +25,15 @@
 # =============================================================================
 
 # Решение:
+# from random import sample
 
 from itertools import groupby, starmap
 from os import path
-
+# SEMINAR_5_DZ\text_words.txt
+# G:\________Study_________\Python\SEMINAR_Python_DZ\SEMINAR_5_DZ\text_words.txt
 
 def create_record_file(start_file: str, name_record_file: str):
-
+# rf"G:\{'Py'}\SEMINAR_Python_DZ\{start_file}", "r", encoding="utf-8"
     # Проверка, существует ли файл, с которым мы хотим взаимодействовать
     if path.exists(start_file):
         with open(start_file) as my_f_1, \
@@ -53,14 +55,22 @@ def create_decode_file(rle_file: str):
             n = ""
             for k in my_f:
                 word_nums = []
+                count = 0
                 for i in k.strip():
+                    count += 1
                     if i.isdigit():
-                        n += 1
+                        n += i
                     else:
                         # Фиксирование точного кол. симв. числа
                         # т.к. может быть больше 9 подряд одинаковых символов
                         word_nums.append([int(n), i])
                         n = ""
+
+                    if count == len(k) and k[-1] == "\n":
+                        word_nums.append([int(k[-2]), "\n"])
+
+                    # print(word_nums)
+
                 print("".join(starmap(lambda x, y: x * y, word_nums)))
     else:
         print("The files do not exist in the system!")
@@ -77,8 +87,12 @@ def create_decode_file(rle_file: str):
 #     else:
 #         print("The files do not exist in the system!")
 
-# open_f = input("Enter the name of the file with the text: ")
-# record_f = input("Enter the file name to record: ")
-# decode_f = input("Enter the name of the file to decode: ")
+
+create_record_file(
+    input("Enter the name of the file with the text: "),
+    input("Enter the file name to record: ")
+)
+
+create_decode_file(input("Enter the name of the file to decode: "))
 
 # =============================================================================
